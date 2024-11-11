@@ -23,9 +23,15 @@
 
 - css 动画
  - animation
- - keyframes
+ - keyframes 关键帧
  - transform scale translateY
  - 飞船模拟动画，逼真
  - 1% 时间差，画龙点睛
  - transform-style：perspective-3d 开启3d
    perpective:800px;视点，眼睛离屏幕的距离
+
+ - inline 元素不支持transform，display 属性切换为inline-block
+
+ git add.
+ git commit -m "starwars"
+ git push origin main
