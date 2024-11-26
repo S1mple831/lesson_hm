@@ -15,3 +15,5 @@
   - 项目的根目录下添加 .env文件，包含key等信息
   - 不能提交到github中 找到.gitignore文件 添加这类文件的申明 .env
   - dotenv.config() 将.env 读入process.env 对象中  
+- 了解Prompt 设计模式，开发功能需求Prompt 模版，AI 应用
+  - 总结模版

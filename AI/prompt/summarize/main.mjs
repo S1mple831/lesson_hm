@@ -31,7 +31,32 @@ const getCompletion =  async (prompt, model="gpt-3.5-turbo") => {
 }
 
 const main = async () => {
-  const response = await getCompletion('你好啊')
+    const prod_review = `
+  我女儿生日时买了这个熊猫毛绒玩具，她很喜欢，到处都带着。
+  它柔软、超级可爱，脸看起来很友好。
+  不过，相对于我付的价格来说，它有点小。
+  我想，同样的价格，也许还有其他更大的选择。
+  它比预期早到了一天，所以我有机会自己玩了一会儿，然后才把它送给她。
+  `;
+// 初级Prompt 设计原则 
+// 准确表达任务 
+// 给他一个角色
+//较少出错的可能
+// 商品评论Prompt 模版
+ // const promet = `
+ // 您的任务是生成来自电子商务网站产品评论的简单摘要。
+  //总结下面用三个反引号分隔的评论，最多30个字。
+ // 评论：'''${prod_review}'''
+  //`
+
+  const prompt =`
+  你的任务是生成来自电子商务网站的产品评论的有关时间运输简短摘要，
+  以便向运输部门提供反馈。
+  总结以下用三个反引号分隔的评论，最多30个字。
+  并重点关注任何提及产品运输和交付的方面。
+  评论：'''${prod_review}'''
+  `
+  const response = await getCompletion(prompt ,'gpt4o')
   console.log(response);
 }
 
