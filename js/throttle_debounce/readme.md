@@ -32,3 +32,22 @@ url的设计模式 restful api 一切皆资源的设计模式
     找到 http://localhost:3000/posts/2  DELETE
 
 - json-server 是一个支持restful api设计的数据服务器
+
+- 全栈防抖
+ - 前后端分离 解耦 前后端开发互不干扰
+  - 前端 live-server 5500
+    fetch url 发送请求
+  - 后端 json-server 3000
+    url 接口服务 restful
+  - api 接口
+
+- filter、map
+  - 都是Array.prototype 上的方法，所有数组都有
+  - filter 对数组进行过滤，回调函数的返回值是否为true 决定是否保留当前元素
+  - map 对数组进行映射，回调函数的返回值是新的元素 原有数组不能满足需求
+  - forEach 迭代每一项 不需要返回
+
+- 防抖
+  - 将要执行的函数交给一个debounce（） 高阶函数去优化
+  - 减少执行次数 只执行连续输入的最后一次
+  - 靠定时器 本次会关掉上一次的定时器
