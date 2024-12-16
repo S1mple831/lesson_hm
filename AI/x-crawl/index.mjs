@@ -13,7 +13,7 @@ import {
   
   const crawlOpenAIApp = createCrawlOpenAI({
     clientOptions: {
-      apiKey: 'sk-DQyFVvlYDkVEcwRy1uY6WOkEz0AUhGeQRdSQ0mXKA4JgCp8M',
+      apiKey: '',
       baseURL: 'https://api.302.ai/v1/'
     },
     defaultModel: {
