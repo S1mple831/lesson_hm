@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>React Counter Example</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <!-- 引入 Babel 编译 JSX 使用 BootCDN -->
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <!-- 应用程序挂载点 -->
+     <!-- 挂载点 -->
+    <div id="root"></div>
+    <script type="text/babel">
+    // 函数组件
+    const {
+      useState
+    } = React
+    // 定义一个名为Counter的函数组件
+    function Counter() {
+      // 使用useState钩子来声明一个名为count的状态变量，并将其初始化为0
+      const [count, setCount] = useState(0) 
+      // 定义一个名为increment的函数，用于增加count的值
+      const increment = () => {
+        // 使用setCount函数来更新count的值，使其增加1
+        setCount(count+1)
+      }
+      // 返回一个包含当前计数值和增加按钮的JSX元素
+      return (
+        <div>
+          Count: {count}
+          <button onClick={increment}>+1</button>
+        </div>
+      )
+    }
+    // 使用ReactDOM.render将Counter组件渲染到id为root的DOM元素中
+    ReactDOM.render(<Counter />, document.getElementById('root'))
+    </script>
