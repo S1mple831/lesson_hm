@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 定义HTML文档的根元素，设置文档语言为英语 -->
+<html lang="en">
+<head>
+    <!-- 设置文档的字符编码为UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- 设置视口的宽度为设备宽度，初始缩放比例为1.0 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 设置文档的标题 -->
+    <title>VUE 更专注于业务（核心是数据 + 配套语法）</title>
+</head>
+<body>
+    <!-- 定义一个根元素，用于挂载Vue应用 -->
+    <div id="app">
+    <!-- 定义一个二级标题，用于显示待办事项列表 -->
+    <h2>{{title}}</h2>
+    <!-- 定义一个文本输入框，用于输入待办事项 -->
+    <input type="text" id="todo-input" v-model="title">
+    </div>
+
+    <!-- 引入Vue.js库，用于操作DOM元素 -->
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <script>
+     // 定义一个Vue组件
+     const App = {
+        // 定义组件的数据
+        // vue 2.0 
+        data(){
+            return{
+                // 定义一个变量title，用于存储待办事项
+                title:""
+            }
+        }
+     }
+     // 创建一个Vue应用，并挂载到根元素上
+     Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
