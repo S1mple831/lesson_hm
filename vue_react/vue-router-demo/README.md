@@ -19,3 +19,30 @@
 - router 有专门的目录
   - index.js 入口配置文件
   - router-link 是vue-router 提供的组件，ues（router） 不用引入就可以生效
+
+- 业务熟练度
+  - vue router 语法细节
+    - routes 拆分 亮点
+      [
+        /
+        /About 顶级路径，
+        ...users //用户模块
+        ...posts //文章模块
+      ]
+      展开运算符
+     - path，component
+       - name   有大用
+       - props   给路由传递参数
+
+- 路由历史记录 history
+  router-link 而不是a 要实现组件功能
+  只需要router.push() 入栈
+  栈顶是当前路由页面，显示组件
+  能前进，后退，
+  导航 = url + history navigator
+
+- 实战开发
+  - stylus
+    加速css 开发
+    npm i -D stylus 当前项目安装stylus 包
+    省略{} ： ； 用 tab 缩进代替
