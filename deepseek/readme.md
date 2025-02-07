@@ -68,3 +68,30 @@
         - ctx 上下文对象 既能代表 request + response 
         - ctx.body 设置响应体
     - 跨域 同源策略
+
+- ollama
+  - 302.ai ai转发 online 大模型  
+  - 本地访问大模型的可能
+    某大厂，开源的deepseek-r1:1.5b
+    ollama pull deepseek-r1:1.5b 拉取到本地    offline调用
+    模型的微调 根据自己的业务或需求 重新的练一下deepseek
+  - oama pull llama3.2：latest 拉取到本地
+  - const add = (x,y) => x+y 简单的编程
+    LLM（也是函数，但能接受巨大的参数）nlp + 全球的知识（机器学习） + transfomer机制 => AIGC 回答 大模型函数
+  - ollama run deepseek -r1:1.5b 运行
+     command line chatbot
+     全栈应用的方式来通信
+     - 11434 端口伺服
+     - /api/chat 聊天的方式LLM 响应
+       /api/generate 生成的方式LLM 响应
+     - http 请求支持
+  - 参数 （处理问题的规模）尺寸
+    内存（8G）显卡等硬件相关
+  - 集成deepseek 能力 可以实现了
+
+- koa 
+  路由定义好，是以函数的方式来处理从这个路由的用户，参数校验，逻辑功能，LLM axios 请求 返回资源，结束请求
+  - 基于koa，koa-router 通过axios 向ollama 11434/api/chat 发送请求，获得LLM 响应
+  - 封装AI LLM 接口
+
+- react 去axios 向koa AI LLM 接口发送请求

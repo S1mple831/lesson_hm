@@ -1,34 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React,{useState,useEffect} from 'react';
+import axios from 'axios';
+import './App.class name ';
 
-function App() {
-  const [count, setCount] = useState(0)
+const chatApi = async (message) => {
+  // 请求行 method + url + http版本
+  // 5173 -> 3000 跨域？ 同源策略
+  const response = await axios.post ('http://localhost:3000/chatai',
+  // 请求体  json
+    message,{
+      // 请求头
+    headers:{
+      'Content-Type':'application/json'
+    }
+  }
+)
+return response.data;
+}
 
+//hooks 函数 react 内置 副作用
+const App = () => {
+  // useEffect 不能直接使用 async await
+  useEffect(() => {
+    // 副作用 mounted updated unmouted
+    // await chatApi()
+   const callChatAPI = async () => {
+    await chatApi ({message:'你好'})
+   }
+   callChatAPI()
+  })
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      App
+    </div>
   )
 }
 

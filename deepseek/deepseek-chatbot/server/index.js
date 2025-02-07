@@ -5,6 +5,7 @@ const koa = require('koa');
 const app = new koa(); // 也是应用
 const Router = require('koa-router'); // 路由
 const router = new Router(); // 实例化
+const axios = require('axios'); // 
 // 新建 / 路由
 router.get('/', async (ctx) => {
   // 响应体
@@ -26,10 +27,35 @@ router.get('/', async (ctx) => {
 // post 
 // 后端 api 接口数据 json 
 // nest.js 
+// 前端react axios 向 /chatai 发送post 请求
 router.post("/chatai", async (ctx) => {
+  // 前端 input 传过来的内容 message 
+  // 向ollama ：11434/api/chat 发送 post 请求
+  // chatgpt 行业标准
+  const message = 'hello';
+  const data = {
+    model: "deepseek-r1:1.5b", // 必须制定
+    messages: [
+      {
+        role: "user",
+        content: message
+      }
+    ],
+    stream: false
+  }
+
+  // axios 发送请求就用它 转发请求
+  // AI 能力集成
+  const response = await axios
+    .post("http://localhost:11434/api/chat", data)
+    .then(response => {
+      console.log(response.data);
+    })
+
+
   ctx.body = {
     code: 200,
-    message: '我是一个机器人'
+    content:response.data.message.content
   }
 })
 // 路由的挂载app
