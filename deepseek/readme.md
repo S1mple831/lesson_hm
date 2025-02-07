@@ -95,3 +95,29 @@
   - 封装AI LLM 接口
 
 - react 去axios 向koa AI LLM 接口发送请求
+
+- jsonp 跨域
+js ajax/fetch cors
+jsonp script 标签 <script src=""></script>
+callback({a:1})
+callback
+
+同源策略会限制其读取响应内容以防信息泄露。而CORS（跨源资源共享）机制允许服务器通过特定的HTTP响应头告知浏览器该请求是被允许的，从而解除这种限制。因此，虽然同源策略会限制JavaScript读取跨域请求的响应，但不会直接“block”请求本身；相反，它控制的是能否访问请求的结果。
+
+cors 后端方案  允许跨域
+
+服务器端设置响应头，告诉浏览器允许跨域访问
+ctx.set('Access-Control-Allow-Origin', '*'); 上下文，响应头
+Access-Control-Allow-Origin: *
+ctx.set'Access-Control-Allow-Methods', 
+ctx.set'Access-Control-Allow-Headers', 
+
+- option 预检请求 method之一
+  比较温柔
+  跨域请求 辉县发送一个Options请求，询问服务器是否允许跨域访问
+  被允许，继续发送实际的请求 post
+
+- koa服务 就像烤面筋
+  - 中间件函数  洋葱模型
+  - 有顺序
+  - 从上到下执行 
