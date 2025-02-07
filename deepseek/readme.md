@@ -121,3 +121,10 @@ ctx.set'Access-Control-Allow-Headers',
   - 中间件函数  洋葱模型
   - 有顺序
   - 从上到下执行 
+
+- vue 和 react 区别
+  - vue v-model 双向绑定
+  - react 支持单项数据流 认为双向绑定性能不好
+    单项 + 事件onChange
+  - vue 支持事件修饰符 api 友好
+  - react 手写
