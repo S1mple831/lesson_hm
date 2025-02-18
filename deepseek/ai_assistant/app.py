@@ -2,7 +2,7 @@
 #request axios 调用deepseek api
 #jsonify 接口json化
 from flask import Flask, request, jsonify, send_from_directory
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
 # 系统模块
 import os
@@ -39,11 +39,36 @@ def chat():
     message = data,get('message')
     temperature = data.get('temperature',1.0)
 
+    if not model or not message:
+      return jsonify({'error':'缺少必要的字段'}),400
+
+    # m views controller
+    api_key = os.getenv('OPENAI_API_KEY')
+    base_url = os.getenv('DEEPSEEK_BASE_URL')
+    # 字典 jsonify python 对象转json
+    # python 更老、json 后面发明
+    if not api_key :
+      return jsonify({'error':'OPENAI_API_KEY 未设置'}),500
+
+    clinet = openai.OpenAI(api_key=api_key,base_url=base_url)
+
+    # 同步
+    # js单线程 前端负责用户交互 要快点涉及用户体验 node 异步 性能特别好
+    response = clinet.chat.completions.create(
+      model=model,
+      messages=[
+        {'role':'user','content':message}
+      ],
+      temperature=temperature,
+      stream=False
+    )
     #print(data)
 
-    return jsonify({'message':'Hello World!'})
+    return jsonify({'message':response.data[0].message.content})
   except openai.error.OpenAIError as e: 
     return jsonify({'error':str(e)}),500
+  except Exception as e:
+    return jsonify({'error':"发生了一个错误"}),500
 
 if __name__ == '__main__':
   app.run(debug=True)
