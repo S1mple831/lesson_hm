@@ -51,3 +51,14 @@
   - 没有前后端分离 mvc 开发模式
     - 前端 static 目录下
     - 路由 / 显示index.html
+
+- 静态文件
+  - js/css/img FE
+  - 启动静态服务器
+
+- 状态码
+  1xx 请求之中...
+  2xx 成功 201 Created
+  3xx 重定向
+  4xx 客户端错误
+  5xx 服务器错误
