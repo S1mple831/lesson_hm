@@ -45,7 +45,7 @@ body {
     font-weight: 700;
   }
   
-  /* 按钮样式 */
+  /* 按钮样式 基础样式*/
   .button {
     display: inline-block;
     padding: 10px 20px;
@@ -119,14 +119,14 @@ body {
   /* 聊天记录 */
   .chat-left {
     display: flex;
-    flex-direction: column;
-    height: calc(100vh - 2px); /* 减去标题和其他元素占用的空间 */
+    flex-direction: column;/* 设置主轴为纵轴 */
+    height: calc(100vh - 104px); /* 减去标题和其他元素占用的空间 高度css 内置函数 */
     position: relative; /* 为绝对定位的子元素提供参考 */
   }
   
   .chat-log {
     flex-grow: 1; /* 让聊天记录占据可用空间 */
-    overflow-y: auto;
+    overflow-y: auto;/*溢出的时候会有滚动条 垂直方向*/
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 16px;

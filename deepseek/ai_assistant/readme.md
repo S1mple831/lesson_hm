@@ -102,3 +102,52 @@
     }
     - transition animation
       - width transition ipad 旋转屏幕
+      - transition：多个属性分别设置
+    - 面向对象思想
+      - 封装 多态 继承
+      - button 样式组件 基础样式
+        UI风格 antd
+      - 组合业务样式
+        primary secondary default -> tailwindcss 原子类
+    - calc
+      CSS中执行简单的数学运算，用于动态布局设计中精确控制元素大小与位置。性能有一定问题， 不能滥用，涉及不必要的重绘重排
+    - flex：1
+    flex-grow: 1; 其他子元素没有设置 主元素 其他元素占完后 剩下的都归他来grow； 多个子元素都设置 按比例划分
+    flex-basis
+    fles-shrink
+
+  - js
+    - 用户体验
+      - keydown enter 阻止默认行为
+      - event.preventDefault()
+    - promise 的使用
+      await 后面的肯定是promise 或返回promise实例的函数
+      then 链式调用
+        在.then()的函数中返回的任然是promise实例，所以可以继续then
+        如果不是 promise.resolve() 包一下
+  - BOM
+    - navigator.userAgent
+    操作系统 浏览器版本 内核
+    - navigator.clipboard
+  - localStorage
+    - 本地存储
+    - 本地存储的大小 5m 4096kb 相对于cookie 
+
+  - 开发风格
+    - 注释
+    - 封装
+      - 一个函数只做一件事
+      - 一个函数不超过10行
+    - es6+
+      promise + async/await
+
+
+## 业务
+  - 界面业务
+    - grid 布局
+    - transition
+    - css 面向对象
+  - scrollToTop 业务 
+  - 发消息业务
+  - 流式输出
+  - 剪贴板功能
