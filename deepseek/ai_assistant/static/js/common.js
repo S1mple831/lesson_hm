@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
       conversationListElement.innerHTML = '';
       loadConversationList();
     };
-  
+    // 保存当前对话
     const saveCurrentConversation = () => {
       const currentChatLog = JSON.parse(localStorage.getItem('chatLog')) || [];
       const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", function () {
       currentPage = 1;
       hasMoreMessages = true;
     };
-    
-    const startNewConversation = () => {
+    // 创建新的对话
+     const startNewConversation = () => {
       saveCurrentConversation();
       localStorage.removeItem('chatLog');
       chatLogElement.innerHTML = '';
