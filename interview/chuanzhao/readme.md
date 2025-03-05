@@ -29,3 +29,7 @@
 - css3 新特性
 ## HTML5
 - websocket-chat
+
+## Vue
+- v-if/v-show 的区别
+- vue 组件通信
