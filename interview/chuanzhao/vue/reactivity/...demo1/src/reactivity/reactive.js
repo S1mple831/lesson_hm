@@ -1,11 +1,16 @@
+import {
+  mutableHandlers
+} from './baseHandlers';
 // 依赖地图  Map es6 新增的数据结构 HashMap O(1) key 取 value 
 // get set has ....  json 区别 key 只能是字符串， map 可以是对象
-export const reactiveMap = new WeakMap();
-
+export const reactiveMap = new WeakMap();// 做全局依赖 
+// 有垃圾回收机制，弱引用 在生命周期结束和组件卸载的时候，自动释放内存
+// 大型项目中，响应式对象很多，但是 reactiveMap 只有一个 性能？
+// router-view 
 // target 普通对象
 export const reactive = (target) => {
   // 返回代理对象
-  return createReactiveObject(target, reactiveMap);
+  return createReactiveObject(target, reactiveMap, mutableHandlers);
 }
 
 function createReactiveObject(target, proxyMap, proxyHandlers) {
