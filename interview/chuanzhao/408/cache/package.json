@@ -1,0 +1,12 @@
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "description": "郭-1321231123-前端实习-AI全栈",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
