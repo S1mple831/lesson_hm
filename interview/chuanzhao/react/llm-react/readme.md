@@ -30,3 +30,15 @@
   - 消息机制
     postMessage()
     onmessage()
+
+## progress stateless 组件设计
+
+## LLM 加载
+单例模式
+- tokenizer model 下载
+- initialize download progress done
+
+## 设计progress 需要的响应式的数据
+
+
+组件= 响应式状态（私有状态） + UI逻辑
