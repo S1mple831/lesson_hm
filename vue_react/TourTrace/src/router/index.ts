@@ -8,30 +8,15 @@ import type { RouteRecordRaw } from 'vue-router'
 // a = 2;
 // a = "abc";// 巨大隐患
 
-const rootRoutes = [
+const rootRoutes:RouteRecordRaw[] = [
   {
-      path: 'home',
+      path: '/home',
       name: 'Home',
       meta:{
           title: '首页',
           cache:true
       },
-      component: () => import('../views/Home/Home.vue')
-  },
-]
-// 类型可以让代码正确
-const routes :RouteRecordRaw[] = [
-  {
-    path: "/",
-    name: 'App',
-    component: () => import('../views/KeepAlive.vue'),
-    redirect: '/home', // 重定向
-    children: rootRoutes
-  },
-  {
-    path:'/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue'),
+      component: () => import('@/views/Home/Home.vue')
   },
   {
     path: 'assistant',
@@ -40,9 +25,9 @@ const routes :RouteRecordRaw[] = [
         title: 'ai助手',
         cache:true
     },
-    component: () => import('../views/Assistant/Assistant.vue')
-},
-{
+    component: () => import('@/views/Assistant/Assistant.vue')
+  },
+  {
     path:'shopping',
     name: 'Shopping',
     meta:{
@@ -50,7 +35,8 @@ const routes :RouteRecordRaw[] = [
         cache:true
     },
     component: () => import('@/views/Shop/Shopping.vue')
-},  {
+  },
+  {
     path:'mine',
     name: 'Mine',
     meta:{
@@ -58,17 +44,34 @@ const routes :RouteRecordRaw[] = [
         cache:false
     },
     component: () => import('@/views/My/Mine.vue')
-}
+  }
+]
+// 类型可以让代码正确
+const routes :RouteRecordRaw[] = [
+  {
+    path: "/",
+    name: 'App',
+    component: () => import('@/views/KeepAlive.vue'),
+    redirect: '/home', // 重定向
+    children: rootRoutes
+  },
+  {
+    path:'/login',
+    name: 'Login',
+    component: () => import('@/views/Login.vue'),
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
 router.beforeEach((to, from, next)=>{
-    // as 断言 当做什么类型处理
-    document.title = to.meta.title as string;
-    next()
+  // as 当什么类型来看 断言  
+  document.title =  to.meta.title as string;
+  next()
 
 })
+
 export default router
